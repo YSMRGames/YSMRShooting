@@ -6,18 +6,26 @@ public class Player_ujk : MonoBehaviour
 {
     // 移動スピード
     public float Speed = 5f;
-	
+    public GameObject _bullet;
 	void Start ()
     {
 
 	}
-	
-	
-	void Update ()
+
+
+    void Update()
     {
         MovePlayer();
-	}
-
+        ShotBullet();
+    }
+    
+    void ShotBullet()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(_bullet, transform.position, transform.rotation);
+        }
+    }
     void MovePlayer()
     {
         // 右・左
